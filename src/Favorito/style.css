@@ -1,0 +1,138 @@
+.favoritos-container {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+.favoritos-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.favoritos-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.favoritos-header p {
+  color: #555;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.character-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.character-card-link:hover .character-card {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.character-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character-card img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.character-details {
+  padding: 1rem;
+}
+
+.character-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.character-details h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.character-details p,
+.character-details span {
+  margin: 0;
+  color: #555;
+  display: block;
+}
+
+.error-message,
+.info-message {
+  text-align: center;
+  padding: 1rem 0;
+  color: #444;
+}
+
+.favorite-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #888;
+  transition: color 0.2s ease;
+}
+
+.favorite-toggle:hover {
+  color: #444;
+}
+
+.favorite-toggle.favorito {
+  color: #f5b700;
+}
+
+.error-message {
+  color: #b00020;
+}
+
+@media (max-width: 1024px) {
+  .character-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .favoritos-container {
+    padding: 1rem;
+  }
+
+  .favoritos-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .character-card img {
+    height: 180px;
+  }
+
+  .character-details {
+    padding: 0.75rem;
+  }
+
+  .character-details h2 {
+    font-size: 1rem;
+  }
+}
