@@ -79,7 +79,7 @@ const characters = [
 ]
 
 // Función que calcula qué tan parecido es un personaje a las elecciones del usuario
-function getMatchScore(character, banner, virtue, sign) {
+function getMatchScore(character: any, banner: any, virtue: any, sign: string) {
   let score = 0
   // Si el personaje coincide con el estandarte elegido, suma 2 puntos
   if (character.banners.includes(banner.name)) score += 2
