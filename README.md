@@ -18,6 +18,48 @@ If you are developing a production application, we recommend updating the config
 ```js
 export default defineConfig([
   globalIgnores(['dist']),
+
+## Building for Mobile (APK)
+
+This project is configured with Capacitor for building Android APKs.
+
+### Prerequisites
+- Node.js and npm
+- Android Studio with Android SDK installed
+- Java JDK (version 17 or higher recommended)
+
+### Steps to Build APK
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Build the web app:
+   ```bash
+   npm run build
+   ```
+
+3. Sync with Capacitor:
+   ```bash
+   npx cap sync android
+   ```
+
+4. Open in Android Studio:
+   ```bash
+   npx cap open android
+   ```
+   Or build directly:
+   ```bash
+   cd android
+   ./gradlew assembleDebug
+   ```
+   The APK will be in `android/app/build/outputs/apk/debug/app-debug.apk`
+
+### Splash Screen
+The splash screen is configured in `capacitor.config.ts`. To customize, add splash images to `android/app/src/main/res/drawable-*/splash.png` (various densities).
+
+For more details, see [Capacitor documentation](https://capacitorjs.com/docs).
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

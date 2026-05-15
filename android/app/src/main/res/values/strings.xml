@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Api Original</string>
+    <string name="title_activity_main">Api Original</string>
+    <string name="package_name">com.yesicacausado.apioriginal</string>
+    <string name="custom_url_scheme">com.yesicacausado.apioriginal</string>
+</resources>

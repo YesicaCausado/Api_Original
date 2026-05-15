@@ -1,5 +1,7 @@
 // Importa las librerías y componentes necesarios para el enrutamiento
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth'
 
 // Importa cada página de la aplicación
 import Informativa from './Informativa'
@@ -8,13 +10,22 @@ import Usuario from './Usuario'
 import Home from './Home'
 import Favoritos from './Favorito'
 import Personaje from './Personaje'
+import { auth } from './firebase'
 import './App.css'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setIsLoggedIn(!!user)
+    })
+    return unsubscribe
+  }, [])
 
   return (
     <>
-    <Router>
+      <Router>
       {/* Define las rutas de la aplicación y qué componente mostrar en cada ruta */}
       <Routes>
         {/* Ruta principal: página de inicio */}
@@ -39,7 +50,13 @@ function App() {
         <Link to="/favoritos"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwirKiGL1VFlx1A456XT5nxNyWds8y4-K5zg&s" /><p>Favoritos</p></Link>
         <Link to="/original"><img src="https://media.istockphoto.com/id/1448912272/vector/soccer-ball-icon-football-game-ball-icons.jpg?s=170667a&w=0&k=20&c=BppyhfxxHRxTSk_1urxYxFTh9a-UprsyYm5vI0XC7Lg=" /><p>Original</p></Link>
         <Link to="/informativa"><img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/more-info-icon.png" /><p>Informativa</p></Link>
-        <Link to="/usuario"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNzXYh-X4wxX1jfbPywa8HWoNGDnx1Tlo0-g&s" /><p>Usuario</p></Link>   
+        <Link to="/usuario">
+          <img
+            src={isLoggedIn ? 'https://img.icons8.com/fluency/48/000000/lock-2.png' : 'https://img.icons8.com/fluency/48/000000/lock--v1.png'}
+            alt={isLoggedIn ? 'Sesión iniciada' : 'Sesión cerrada'}
+          />
+          <p>Usuario</p>
+        </Link>
       </nav>
     </Router>
     </>

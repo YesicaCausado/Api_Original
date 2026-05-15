@@ -1,0 +1,148 @@
+.user-page {
+  padding: 1.5rem 1rem 5rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.user-panel {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.06);
+}
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.user-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.user-subtitle {
+  margin: 0.25rem 0 0;
+  color: #4f5170;
+  font-size: 0.95rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.status-badge.online {
+  background: #e6f7ea;
+  color: #175a2f;
+}
+
+.status-badge.offline {
+  background: #fde8e4;
+  color: #8c1d18;
+}
+
+.status-card,
+.note-card {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1rem;
+  border-radius: 16px;
+  background: #f7f7fb;
+  color: #333;
+}
+
+.user-form label {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.user-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d6d4e0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.form-actions,
+.user-logout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  border-radius: 14px;
+  padding: 0.95rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: #5b42f3;
+  color: #fff;
+}
+
+.button.secondary {
+  background: #f4f4f8;
+  color: #1f1f35;
+}
+
+.button.logout {
+  background: #e24f4f;
+  color: #fff;
+}
+
+.user-message {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: #fff7d7;
+  color: #5d4d16;
+}
+
+.note-card code {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  background: #eef0ff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 520px) {
+  .user-panel {
+    padding: 1.2rem;
+  }
+
+  .user-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions,
+  .user-logout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
